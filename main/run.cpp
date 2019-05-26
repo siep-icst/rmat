@@ -10,7 +10,7 @@ int main()
 
   //parameters
   int v_num=100;
-  int e_num=400
+  int e_num=400;
   int A=57,B=19,C=19,D=5;
   double a=(double)A/100;
   double b=(double)B/100;
