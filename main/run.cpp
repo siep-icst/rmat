@@ -1,4 +1,4 @@
-#include <../util/Util.h>
+#include "../util/Util.h"
 
 typedef boost::adjacency_list<> Graph;
 typedef boost::rmat_iterator<boost::minstd_rand, Graph> RMATGen;
