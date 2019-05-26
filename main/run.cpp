@@ -7,7 +7,10 @@ typedef boost::rmat_iterator<boost::minstd_rand, Graph> RMATGen;
 int main()
 {
   boost::minstd_rand gen;
-  // Create graph with 100 nodes and 400 edges
+
+  //parameters
+  int v_num=100;
+  int e_num=400
   int A=57,B=19,C=19,D=5;
   double a=(double)A/100;
   double b=(double)B/100;
@@ -16,11 +19,11 @@ int main()
 
   printf("a=%lf b=%lf c=%lf d=%lf\n",a,b,c,d);
   char* file_name=(char*)malloc(100*sizeof(char));
-  sprintf(file_name,"rmat_%d_%d_%d_%d",A,B,C,D);
+  sprintf(file_name,"rmat_%d_%d_%d_%d.txt",A,B,C,D);
   printf("write to file: %s\n",file_name);
   FILE* ofp=fopen(file_name,"w+");
 
-  Graph g(RMATGen(gen, 100, 400, a, b, c, d), RMATGen(), 100);
+  Graph g(RMATGen(gen,v_num, e_num, a, b, c, d), RMATGen(), 100);
   //print all vertex
   // std::cout<<"print all vertices:"<<std::endl;
   boost::graph_traits<Graph>::vertex_iterator vi, vi_end;
