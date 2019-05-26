@@ -17,7 +17,7 @@ all: rmat_gen.exe
 rmat_gen.exe: main/run.cpp $(objfile)
 	$(CC) $(EXEFLAG) -o rmat_gen.exe main/run.cpp $(objfile) $(library)
 
-$(objdir) Util.o: util/Util.cpp util/Util.h 
+$(objdir)Util.o: util/Util.cpp util/Util.h 
 	$(CC) $(CFLAGS) util/Util.cpp -o $(objdir)Util.o
 
 
