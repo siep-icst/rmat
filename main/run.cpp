@@ -19,7 +19,7 @@ int main()
 
   printf("a=%lf b=%lf c=%lf d=%lf\n",a,b,c,d);
   char* file_name=(char*)malloc(100*sizeof(char));
-  sprintf(file_name,"rmat_%d_%d_%d_%d.txt",A,B,C,D);
+  sprintf(file_name,"rmat_v%d_e%d_%d_%d_%d_%d.txt",v_num,e_num,A,B,C,D);
   printf("write to file: %s\n",file_name);
   FILE* ofp=fopen(file_name,"w+");
 
