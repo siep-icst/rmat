@@ -1,3 +1,3 @@
 git add -A
-git commit -m "..."
+git commit -m "rmat generator"
 git push origin master:master

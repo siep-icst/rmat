@@ -10,15 +10,15 @@ EXEFLAG = -O6 #-fprofile-arcs -ftest-coverage -coverage #-pg #-O2
 library = #-lgcov -coverage
 
 objdir = ./objs/
-objfile = $(objdir)rmat_generator.o
+objfile = $(objdir)Util.o
 
 all: rmat_gen.exe
 
-rmat_gen.exe: rmat_generator.cpp $(objfile)
-	$(CC) $(EXEFLAG) -o graphql.exe rmat_generator.cpp $(objfile) $(library)
+rmat_gen.exe: main/run.cpp $(objfile)
+	$(CC) $(EXEFLAG) -o rmat_gen.exe main/run.cpp $(objfile) $(library)
 
-$(objdir)rmat_generator.o: rmat_generator.cpp 
-	$(CC) $(CFLAGS) rmat_generator.cpp -o $(objdir)rmat_generator.o
+$(objdir) Util.o: util/Util.cpp util/Util.h 
+	$(CC) $(CFLAGS) util/Util.cpp -o $(objdir)Util.o
 
 
 
