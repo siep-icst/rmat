@@ -1,3 +1,4 @@
 rmat_generator
 .vscode/
 objs/
+*.exe

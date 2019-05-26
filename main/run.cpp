@@ -4,14 +4,28 @@ typedef boost::adjacency_list<> Graph;
 typedef boost::rmat_iterator<boost::minstd_rand, Graph> RMATGen;
 // typedef boost::graph_traits<Graph>::vertices_size_type size_type;
 
-int main()
+int main(int argc, const char* argv[])
 {
+
+  if(argc!=7)
+  {
+    printf("invalid arguments\n");
+    return 0;
+  }
   boost::minstd_rand gen;
 
   //parameters
   int v_num=100;
   int e_num=400;
   int A=57,B=19,C=19,D=5;
+
+  v_num=atoi(argv[1]);
+  e_num=atoi(argv[2]);
+  A=atoi(argv[3]);
+  B=atoi(argv[4]);
+  C=atoi(argv[5]);
+  D=atoi(argv[6]);
+
   double a=(double)A/100;
   double b=(double)B/100;
   double c=(double)C/100;
