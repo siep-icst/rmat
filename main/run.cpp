@@ -8,18 +8,34 @@ int main()
 {
   boost::minstd_rand gen;
   // Create graph with 100 nodes and 400 edges
-  Graph g(RMATGen(gen, 100, 400, 0.57, 0.19, 0.19, 0.05), RMATGen(), 100);
+  int A=57,B=19,C=19,D=5;
+  double a=(double)A/100;
+  double b=(double)B/100;
+  double c=(double)C/100;
+  double d=(double)D/100;
+
+  printf("a=%lf b=%lf c=%lf d=%lf\n",a,b,c,d);
+  char* file_name=(char*)malloc(100*sizeof(char));
+  sprintf(file_name,"rmat_%d_%d_%d_%d",A,B,C,D);
+  printf("write to file: %s\n",file_name);
+  FILE* ofp=fopen(file_name,"w+");
+
+  Graph g(RMATGen(gen, 100, 400, a, b, c, d), RMATGen(), 100);
   //print all vertex
-  std::cout<<"print all vertices:"<<std::endl;
+  // std::cout<<"print all vertices:"<<std::endl;
   boost::graph_traits<Graph>::vertex_iterator vi, vi_end;
   for(boost::tie(vi, vi_end) = vertices(g); vi != vi_end; ++vi)
-      std::cout<<*vi<<std::endl;
-  std::cout<<"print all edges:"<<std::endl;
+  {
+    int tmp_v=*vi;
+    fprintf(ofp,"v %d\n",tmp_v);
+  }
+  // std::cout<<"print all edges:"<<std::endl;
   boost::graph_traits<Graph>::edge_iterator ei, ei_end;
   for (boost::tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
   {
-    std::cout << "(" << source(*ei, g)<< "," << target(*ei, g)<< ") ";
-    std::cout << std::endl;
+    int v_left=source(*ei, g);
+    int v_right=target(*ei, g);
+    fprintf(ofp,"e %d %d\n",v_left,v_right);
   }
 
 
