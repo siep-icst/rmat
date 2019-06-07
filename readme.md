@@ -10,7 +10,7 @@ print all edges
 
 ## Example
 
-    ./rmat_gen.exe 100 400 59 19 19 5
+    ./rmat_gen.exe 100 400 57 19 19 5
 
 parameters:<br>
 v_num, e_num, A, B, C, D<br>
